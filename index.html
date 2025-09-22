@@ -210,6 +210,59 @@
       align-items: start;
     }
 
+    .team-grid {
+      display: grid;
+      gap: 1.6rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      align-items: stretch;
+    }
+
+    .team-card {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .team-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(47, 230, 255, 0.12);
+      border: 1px solid rgba(47, 230, 255, 0.3);
+      color: var(--accent);
+      width: fit-content;
+    }
+
+    .team-card h3 {
+      font-size: 1.15rem;
+    }
+
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.6rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+    }
+
+    .team-members li {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 0.6rem;
+      padding: 0.25rem 0.65rem;
+    }
+
+    .team-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
     .card {
       background: var(--card-bg);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -251,6 +304,83 @@
     .card p {
       color: var(--text-secondary);
       font-size: 0.98rem;
+    }
+
+    .deliverables-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+      padding: 0;
+    }
+
+    .check-list li {
+      position: relative;
+      padding-left: 1.4rem;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    .check-list li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    .table-card {
+      padding: 0;
+    }
+
+    .table-card header {
+      padding: 1.9rem 1.9rem 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .table-card header h3 {
+      margin-bottom: 0.4rem;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      padding: 0 1.9rem 1.9rem;
+    }
+
+    .deliverables-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 420px;
+    }
+
+    .deliverables-table th,
+    .deliverables-table td {
+      padding: 0.85rem 0.9rem;
+      text-align: left;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .deliverables-table th {
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .deliverables-table td {
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    .deliverables-table tbody tr:hover {
+      background: rgba(47, 230, 255, 0.06);
     }
 
     .meta-list {
@@ -677,6 +807,10 @@
       section {
         margin-bottom: 4rem;
       }
+
+      .deliverables-table {
+        min-width: 360px;
+      }
     }
   </style>
 </head>
@@ -696,7 +830,9 @@
       <nav id="site-nav" aria-label="主导航">
         <ul>
           <li><a href="#intro">实践简介</a></li>
+          <li><a href="#team">团队协作</a></li>
           <li><a href="#timeline">行程回顾</a></li>
+          <li><a href="#deliverables">成果清单</a></li>
           <li><a href="#highlights">成果亮点</a></li>
           <li><a href="#ecosystem">协同生态</a></li>
           <li><a href="#action">结论与展望</a></li>
@@ -742,6 +878,59 @@
             <li>实践地点：安徽合肥 · 四大典型场景</li>
           </ul>
         </aside>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container">
+        <div class="scroll-reveal" style="margin-bottom: 2rem;">
+          <h2 class="section-title">团队协作</h2>
+          <p style="max-width: 720px; color: var(--text-secondary); font-size: 0.98rem;">
+            队伍将 10 余名成员按职责分层协同，既有统筹调度的核心负责人，也有面向传播、影像、采访与后期的专业小组，确保实践内容从采集、梳理、传播到沉淀形成闭环。
+          </p>
+        </div>
+        <div class="team-grid">
+          <article class="card team-card scroll-reveal" aria-label="实践队队长">
+            <span class="team-tag">实践队队长</span>
+            <ul class="team-members">
+              <li>高一鸣</li>
+            </ul>
+            <p>统筹实践整体安排，协调与实践单位对接。</p>
+          </article>
+          <article class="card team-card scroll-reveal" aria-label="文案组">
+            <span class="team-tag">文案组</span>
+            <ul class="team-members">
+              <li>何尹侃</li>
+              <li>杨晓舒</li>
+              <li>李锡浩</li>
+            </ul>
+            <p>负责实践推文和展示 PPT 的制作以及新闻媒体的投稿。</p>
+          </article>
+          <article class="card team-card scroll-reveal" aria-label="摄影组">
+            <span class="team-tag">摄影组</span>
+            <ul class="team-members">
+              <li>彭乔茜</li>
+              <li>舒畅</li>
+            </ul>
+            <p>负责实践过程的拍照与视频拍摄，记录关键瞬间。</p>
+          </article>
+          <article class="card team-card scroll-reveal" aria-label="采访组">
+            <span class="team-tag">采访组</span>
+            <ul class="team-members">
+              <li>胡莹</li>
+              <li>林心洁</li>
+            </ul>
+            <p>深入展厅参观与座谈交流，主动提问挖掘一手资讯。</p>
+          </article>
+          <article class="card team-card scroll-reveal" aria-label="剪辑组">
+            <span class="team-tag">剪辑组</span>
+            <ul class="team-members">
+              <li>李子健</li>
+              <li>周可泽</li>
+            </ul>
+            <p>负责宣传视频的剪辑打磨，让实践故事更具传播力。</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -798,6 +987,95 @@
                 <span class="chip">城市品牌</span>
               </div>
             </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="deliverables">
+      <div class="container">
+        <h2 class="section-title">社会实践成果清单</h2>
+        <div class="deliverables-grid">
+          <article class="card scroll-reveal" aria-label="成果产出亮点">
+            <h3>从记录到传播的全链路闭环</h3>
+            <p>
+              团队以“调研—记录—传播—反哺”为路径，沉淀多渠道内容资产：既有深度反思的文字稿，也有图文与视频化作品，为实践影响力扩散提供素材与抓手。
+            </p>
+            <ul class="check-list" aria-label="成果亮点列表">
+              <li>10 篇个人心得体会，凝练学生视角的认知升级。</li>
+              <li>多平台矩阵发声，青春珞珈、WHU 实践、珞珈计科先锋等账号同步推送。</li>
+              <li>访谈录、调研报告、实践日志等沉淀调研过程，实现资料可复用。</li>
+              <li>实践视频、新闻报道与 PPT 展示打造可视化传播载体。</li>
+            </ul>
+          </article>
+          <div class="card table-card scroll-reveal" aria-label="成果明细表">
+            <header>
+              <h3>成果数量与说明</h3>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">覆盖文字、影像、报告等多维成果，支撑课程汇报与社会传播。</p>
+            </header>
+            <div class="table-responsive">
+              <table class="deliverables-table">
+                <thead>
+                  <tr>
+                    <th scope="col">项目</th>
+                    <th scope="col">数量</th>
+                    <th scope="col">备注</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>个人心得体会</td>
+                    <td>10</td>
+                    <td>基于实践历程，从学生视角解析合肥发展秘诀，为认知迭代提供参考。</td>
+                  </tr>
+                  <tr>
+                    <td>青春珞珈公众号推文</td>
+                    <td>1</td>
+                    <td>聚焦青春实践领域，塑造珞珈实践品牌传播内容。</td>
+                  </tr>
+                  <tr>
+                    <td>WHU 实践公众号推文</td>
+                    <td>1</td>
+                    <td>以专业视角输出实践干货，构建 WHU 实践传播范例。</td>
+                  </tr>
+                  <tr>
+                    <td>珞珈计科先锋公众号推文</td>
+                    <td>5</td>
+                    <td>记录天源迪科、方田教育、科大讯飞和城市记忆馆调研，以技术逻辑拆解行业生态。</td>
+                  </tr>
+                  <tr>
+                    <td>企业访谈录</td>
+                    <td>1</td>
+                    <td>突破交流界面，抓取行业痛点与创新思路，为调研报告提供素材。</td>
+                  </tr>
+                  <tr>
+                    <td>调研报告</td>
+                    <td>1</td>
+                    <td>以合肥数字化新兴企业代表为锚点，形成可落地的调研分析闭环。</td>
+                  </tr>
+                  <tr>
+                    <td>实践视频</td>
+                    <td>1</td>
+                    <td>以镜头语言还原实践过程，实现经历可视化与价值传递。</td>
+                  </tr>
+                  <tr>
+                    <td>实践日志</td>
+                    <td>2</td>
+                    <td>锚定实践轨迹，沉淀过程细节，为实践报告提供支撑素材。</td>
+                  </tr>
+                  <tr>
+                    <td>实践报告</td>
+                    <td>1</td>
+                    <td>整合实践价值，全链路拆解调研至落地流程，形成可复用样本。</td>
+                  </tr>
+                  <tr>
+                    <td>新闻报道</td>
+                    <td>2</td>
+                    <td>发表于中青校园等国家级媒体，扩大实践影响力与社会认可。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
