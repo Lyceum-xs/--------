@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>珞珈探企·皖夏知行队 —— 数智赋能实践成果展示</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Source+Han+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #040b1a;
+      --bg-light: #0d1630;
+      --accent: #2fe6ff;
+      --accent-soft: rgba(47, 230, 255, 0.16);
+      --accent-strong: #7c5cff;
+      --text-primary: #f8f9ff;
+      --text-secondary: rgba(240, 244, 255, 0.75);
+      --card-bg: rgba(13, 22, 48, 0.76);
+      --border-glow: rgba(47, 230, 255, 0.45);
+      --max-width: 1180px;
+      font-size: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg-dark);
+    }
+
+    body {
+      font-family: 'Source Han Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+      background: linear-gradient(160deg, #030717, #0d1c3f 55%, #051225 100%);
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(4, 11, 26, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-bar {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: 'Russo One', 'Source Han Sans SC', sans-serif;
+      font-size: clamp(1.1rem, 2vw + 0.7rem, 1.6rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo span:last-child {
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding-bottom: 0.2rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 0.75rem;
+      padding: 0.4rem 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .hero {
+      position: relative;
+      padding: 6rem 1.5rem 5rem;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(124, 92, 255, 0.25), transparent 55%),
+                  radial-gradient(circle at bottom left, rgba(47, 230, 255, 0.18), transparent 50%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(47, 230, 255, 0.14);
+      border: 1px solid rgba(47, 230, 255, 0.5);
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4vw + 1.2rem, 3.8rem);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: clamp(1.05rem, 1vw + 0.9rem, 1.25rem);
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .tag-cloud span {
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+    }
+
+    section {
+      margin-bottom: 5rem;
+      position: relative;
+    }
+
+    section .section-title {
+      font-size: clamp(1.8rem, 2vw + 1rem, 2.3rem);
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    section .section-title::before {
+      content: '';
+      width: 3rem;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(47, 230, 255, 0), rgba(47, 230, 255, 0.8));
+    }
+
+    .intro-grid {
+      display: grid;
+      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: start;
+    }
+
+    .team-grid {
+      display: grid;
+      gap: 1.6rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      align-items: stretch;
+    }
+
+    .team-card {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .team-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(47, 230, 255, 0.12);
+      border: 1px solid rgba(47, 230, 255, 0.3);
+      color: var(--accent);
+      width: fit-content;
+    }
+
+    .team-card h3 {
+      font-size: 1.15rem;
+    }
+
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.6rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+    }
+
+    .team-members li {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 0.6rem;
+      padding: 0.25rem 0.65rem;
+    }
+
+    .team-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1.25rem;
+      padding: 1.9rem;
+      box-shadow: 0 24px 40px rgba(3, 10, 24, 0.45);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(140deg, rgba(47, 230, 255, 0.1), rgba(124, 92, 255, 0));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-glow);
+      box-shadow: 0 24px 40px rgba(6, 20, 48, 0.55);
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+    }
+
+    .deliverables-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+      padding: 0;
+    }
+
+    .check-list li {
+      position: relative;
+      padding-left: 1.4rem;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    .check-list li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    .table-card {
+      padding: 0;
+    }
+
+    .table-card header {
+      padding: 1.9rem 1.9rem 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .table-card header h3 {
+      margin-bottom: 0.4rem;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      padding: 0 1.9rem 1.9rem;
+    }
+
+    .deliverables-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 420px;
+    }
+
+    .deliverables-table th,
+    .deliverables-table td {
+      padding: 0.85rem 0.9rem;
+      text-align: left;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .deliverables-table th {
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .deliverables-table td {
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    .deliverables-table tbody tr:hover {
+      background: rgba(47, 230, 255, 0.06);
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 1.3rem;
+    }
+
+    .meta-item span {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 0.35rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0.8rem;
+      left: 0.45rem;
+      bottom: 0.8rem;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(47, 230, 255, 0.6), rgba(124, 92, 255, 0.1));
+    }
+
+    .timeline-item {
+      margin-bottom: 2.6rem;
+      position: relative;
+      padding-left: 1.8rem;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 0.3rem;
+      left: -0.45rem;
+      width: 0.9rem;
+      height: 0.9rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent) 0%, rgba(47, 230, 255, 0.1) 70%);
+      box-shadow: 0 0 0 6px rgba(47, 230, 255, 0.12);
+    }
+
+    .timeline-item h4 {
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-item .time {
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      display: inline-block;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .chip {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(124, 92, 255, 0.12);
+      border: 1px solid rgba(124, 92, 255, 0.28);
+      color: #d9d5ff;
+    }
+
+    .highlight-grid {
+      display: grid;
+      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .highlight-card h3 {
+      font-size: 1.18rem;
+    }
+
+    .highlight-card ul {
+      margin-top: 0.9rem;
+      display: grid;
+      gap: 0.65rem;
+      list-style: none;
+      color: var(--text-secondary);
+    }
+
+    .highlight-card li::before {
+      content: '✦';
+      color: var(--accent);
+      margin-right: 0.55rem;
+    }
+
+    .ecosystem {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: stretch;
+    }
+
+    .ecosystem-diagram {
+      position: relative;
+      background: radial-gradient(circle at 50% 20%, rgba(47, 230, 255, 0.18), transparent 70%),
+                  var(--card-bg);
+      border-radius: 1.5rem;
+      padding: 2.2rem;
+      border: 1px solid rgba(47, 230, 255, 0.25);
+      min-height: 320px;
+    }
+
+    .ecosystem-diagram h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .diagram {
+      position: relative;
+      height: 220px;
+    }
+
+    .diagram-node {
+      position: absolute;
+      padding: 0.75rem 1rem;
+      background: rgba(4, 11, 26, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 1rem;
+      text-align: center;
+      width: 160px;
+      font-size: 0.92rem;
+      box-shadow: 0 12px 28px rgba(3, 10, 24, 0.45);
+    }
+
+    .diagram-node strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 0.45rem;
+      color: var(--accent);
+    }
+
+    .diagram-node[data-node="government"] {
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    .diagram-node[data-node="enterprise"] {
+      bottom: 0;
+      left: 12%;
+    }
+
+    .diagram-node[data-node="university"] {
+      bottom: 0;
+      right: 12%;
+    }
+
+    .diagram svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .diagram text {
+      fill: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+    }
+
+    .diagram .pulse {
+      stroke: rgba(47, 230, 255, 0.45);
+      fill: none;
+      stroke-width: 2;
+      stroke-dasharray: 4 6;
+      animation: pulse 4s linear infinite;
+    }
+
+    @keyframes pulse {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 120; }
+    }
+
+    .action-list {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .action-card {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 1rem;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+    }
+
+    .action-card .step {
+      font-size: 0.95rem;
+      color: var(--accent);
+      background: rgba(47, 230, 255, 0.12);
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    .quote-box {
+      background: linear-gradient(140deg, rgba(47, 230, 255, 0.18), rgba(124, 92, 255, 0.08));
+      border-radius: 1.5rem;
+      padding: 2.1rem;
+      border: 1px solid rgba(47, 230, 255, 0.28);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-box::after {
+      content: '"';
+      font-size: 9rem;
+      color: rgba(47, 230, 255, 0.08);
+      position: absolute;
+      top: -2.5rem;
+      right: 2rem;
+      font-family: 'Russo One', sans-serif;
+    }
+
+    .quote-box p {
+      font-size: 1.12rem;
+    }
+
+    .quote-box p strong {
+      color: var(--accent);
+    }
+
+    .media-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: stretch;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: 0 24px 40px rgba(2, 8, 22, 0.7);
+      border: 1px solid rgba(47, 230, 255, 0.2);
+      background: rgba(2, 7, 18, 0.8);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .stats {
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      margin-top: 2rem;
+    }
+
+    .stat-card {
+      padding: 1.4rem 1.2rem;
+      border-radius: 1.1rem;
+      border: 1px solid rgba(47, 230, 255, 0.22);
+      background: rgba(7, 16, 34, 0.8);
+      text-align: center;
+    }
+
+    .stat-card h4 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+      font-family: 'Russo One', sans-serif;
+    }
+
+    .gallery {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 1.6rem;
+    }
+
+    .gallery figure {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .gallery figcaption {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    footer {
+      background: #030717;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(195, 206, 239, 0.6);
+      border-top: 1px solid rgba(47, 230, 255, 0.12);
+    }
+
+    .floating-aside {
+      position: sticky;
+      top: 6.5rem;
+      align-self: start;
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .floating-aside .badge {
+      margin-bottom: 0;
+    }
+
+    .floating-aside ul {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .floating-aside li {
+      padding-left: 1.3rem;
+      position: relative;
+    }
+
+    .floating-aside li::before {
+      content: '';
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 0.45rem;
+      box-shadow: 0 0 0 6px rgba(47, 230, 255, 0.12);
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      nav {
+        position: absolute;
+        top: 100%;
+        right: 1.5rem;
+        width: min(320px, 90vw);
+        background: rgba(4, 11, 26, 0.95);
+        border-radius: 1.25rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 18px 40px rgba(3, 10, 24, 0.6);
+        padding: 1.2rem;
+        transform: translateY(-20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      nav.open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        cursor: pointer;
+      }
+
+      .menu-toggle svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        padding-top: 5rem;
+      }
+
+      .container {
+        padding: 3.2rem 1.2rem;
+      }
+
+      section {
+        margin-bottom: 4rem;
+      }
+
+      .deliverables-table {
+        min-width: 360px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-bar">
+      <a class="logo" href="#top" aria-label="返回页面顶部">
+        <span>LUOJIA</span>
+        <span>实践成果</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+        </svg>
+        菜单
+      </button>
+      <nav id="site-nav" aria-label="主导航">
+        <ul>
+          <li><a href="#intro">实践简介</a></li>
+          <li><a href="#team">团队协作</a></li>
+          <li><a href="#timeline">行程回顾</a></li>
+          <li><a href="#deliverables">成果清单</a></li>
+          <li><a href="#highlights">成果亮点</a></li>
+          <li><a href="#ecosystem">协同生态</a></li>
+          <li><a href="#action">结论与展望</a></li>
+          <li><a href="#media">多媒体</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-content scroll-reveal">
+        <span class="badge">2025 · 数智赋能主题社会实践</span>
+        <h1>珞珈探企·皖夏知行队<br />合肥数智化调研成果可视化</h1>
+        <p>
+          走进政务、教育、AI 产业与城市文化四大场景，记录武汉大学计算机学院大一学生的“数智赋能”实地观察，呈现从政策背景到人才成长的立体故事。
+        </p>
+        <div class="tag-cloud" aria-label="关键词">
+          <span># 数智经济</span>
+          <span># 合肥城市记忆馆</span>
+          <span># AI 大模型</span>
+          <span># 校企协同</span>
+          <span># 教育数智化</span>
+          <span># 复合型人才</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="intro">
+      <div class="container intro-grid">
+        <div class="scroll-reveal">
+          <h2 class="section-title">实践简介</h2>
+          <p>
+            为深入贯彻大思政教育要求，将专业学习与社会实际紧密结合，武汉大学计算机学院“珞珈探企·皖夏知行”队伍于 2025 年 7 月 14 日至 15 日深入安徽合肥开展调研。围绕“数智技术如何赋能产业发展、城市建设与文化传承”这一核心问题，团队走访天源迪科科技园、方田教育合肥总部、科大讯飞讯飞小镇与合肥城市记忆馆，形成跨场景、多维度的观察视角。
+          </p>
+        </div>
+        <aside class="floating-aside scroll-reveal" aria-label="实践关键信息">
+          <span class="badge">团队画像</span>
+          <ul>
+            <li>武汉大学计算机学院大一学生组成</li>
+            <li>关注数智赋能与大思政融合路径</li>
+            <li>实践时间：2025 年 7 月 14 日 — 15 日</li>
+            <li>实践地点：安徽合肥 · 四大典型场景</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container">
+        <div class="scroll-reveal" style="margin-bottom: 2rem;">
+          <h2 class="section-title">团队协作</h2>
+          <p style="max-width: 720px; color: var(--text-secondary); font-size: 0.98rem;">
+            队伍将 10 余名成员按职责分层协同，既有统筹调度的核心负责人，也有面向传播、影像、采访与后期的专业小组，确保实践内容从采集、梳理、传播到沉淀形成闭环。
+          </p>
+        </div>
+        <div class="team-grid">
+          <article class="card team-card scroll-reveal" aria-label="实践队队长">
+            <span class="team-tag">实践队队长</span>
+            <ul class="team-members">
+              <li>高一鸣</li>
+            </ul>
+            <p>统筹实践整体安排，协调与实践单位对接。</p>
+          </article>
+          <article class="card team-card scroll-reveal" aria-label="文案组">
+            <span class="team-tag">文案组</span>
+            <ul class="team-members">
+              <li>何尹侃</li>
+              <li>杨晓舒</li>
+              <li>李锡浩</li>
+            </ul>
+            <p>负责实践推文和展示 PPT 的制作以及新闻媒体的投稿。</p>
+          </article>
+          <article class="card team-card scroll-reveal" aria-label="摄影组">
+            <span class="team-tag">摄影组</span>
+            <ul class="team-members">
+              <li>彭乔茜</li>
+              <li>舒畅</li>
+            </ul>
+            <p>负责实践过程的拍照与视频拍摄，记录关键瞬间。</p>
+          </article>
+          <article class="card team-card scroll-reveal" aria-label="采访组">
+            <span class="team-tag">采访组</span>
+            <ul class="team-members">
+              <li>胡莹</li>
+              <li>林心洁</li>
+            </ul>
+            <p>深入展厅参观与座谈交流，主动提问挖掘一手资讯。</p>
+          </article>
+          <article class="card team-card scroll-reveal" aria-label="剪辑组">
+            <span class="team-tag">剪辑组</span>
+            <ul class="team-members">
+              <li>李子健</li>
+              <li>周可泽</li>
+            </ul>
+            <p>负责宣传视频的剪辑打磨，让实践故事更具传播力。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div class="container">
+        <h2 class="section-title">行程回顾</h2>
+        <div class="card scroll-reveal">
+          <div class="timeline">
+            <article class="timeline-item">
+              <span class="time">DAY 1 · 上午</span>
+              <h4>天源迪科：智慧政务与数字城市</h4>
+              <p>
+                走进展厅了解企业从通信服务到智慧政务平台的迭代，交流数据安全与跨部门协同挑战，获取针对计算机专业学生的能力建议。
+              </p>
+              <div class="chip-row" aria-label="关键词">
+                <span class="chip">智慧政务</span>
+                <span class="chip">数据安全</span>
+                <span class="chip">人才画像</span>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="time">DAY 1 · 下午</span>
+              <h4>方田教育：双减后的教育数智化</h4>
+              <p>
+                探访智能备课系统与个性化学习平台，了解教培行业转型策略；校友座谈分享教育科技领域对“教育 + 技术”复合型人才的渴求。
+              </p>
+              <div class="chip-row">
+                <span class="chip">教育科技</span>
+                <span class="chip">双减转型</span>
+                <span class="chip">校友对话</span>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="time">DAY 2 · 上午</span>
+              <h4>科大讯飞：AI 产业生态</h4>
+              <p>
+                沉浸式体验“星火大模型”多模态能力，了解 AI 技术从场景应用到产业链的扩展，并解读企业人才培养与招聘策略。
+              </p>
+              <div class="chip-row">
+                <span class="chip">星火大模型</span>
+                <span class="chip">多模态 AI</span>
+                <span class="chip">产业落地</span>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="time">DAY 2 · 下午</span>
+              <h4>合肥城市记忆馆：文化与数智融合</h4>
+              <p>
+                通过 AI 换脸、模拟骑行与数字沙画体验合肥城市发展脉络，感受数智技术赋能公共文化服务的参与感与沉浸感。
+              </p>
+              <div class="chip-row">
+                <span class="chip">沉浸式体验</span>
+                <span class="chip">文化传承</span>
+                <span class="chip">城市品牌</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="deliverables">
+      <div class="container">
+        <h2 class="section-title">社会实践成果清单</h2>
+        <div class="deliverables-grid">
+          <article class="card scroll-reveal" aria-label="成果产出亮点">
+            <h3>从记录到传播的全链路闭环</h3>
+            <p>
+              团队以“调研—记录—传播—反哺”为路径，沉淀多渠道内容资产：既有深度反思的文字稿，也有图文与视频化作品，为实践影响力扩散提供素材与抓手。
+            </p>
+            <ul class="check-list" aria-label="成果亮点列表">
+              <li>10 篇个人心得体会，凝练学生视角的认知升级。</li>
+              <li>多平台矩阵发声，青春珞珈、WHU 实践、珞珈计科先锋等账号同步推送。</li>
+              <li>访谈录、调研报告、实践日志等沉淀调研过程，实现资料可复用。</li>
+              <li>实践视频、新闻报道与 PPT 展示打造可视化传播载体。</li>
+            </ul>
+          </article>
+          <div class="card table-card scroll-reveal" aria-label="成果明细表">
+            <header>
+              <h3>成果数量与说明</h3>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">覆盖文字、影像、报告等多维成果，支撑课程汇报与社会传播。</p>
+            </header>
+            <div class="table-responsive">
+              <table class="deliverables-table">
+                <thead>
+                  <tr>
+                    <th scope="col">项目</th>
+                    <th scope="col">数量</th>
+                    <th scope="col">备注</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>个人心得体会</td>
+                    <td>10</td>
+                    <td>基于实践历程，从学生视角解析合肥发展秘诀，为认知迭代提供参考。</td>
+                  </tr>
+                  <tr>
+                    <td>青春珞珈公众号推文</td>
+                    <td>1</td>
+                    <td>聚焦青春实践领域，塑造珞珈实践品牌传播内容。</td>
+                  </tr>
+                  <tr>
+                    <td>WHU 实践公众号推文</td>
+                    <td>1</td>
+                    <td>以专业视角输出实践干货，构建 WHU 实践传播范例。</td>
+                  </tr>
+                  <tr>
+                    <td>珞珈计科先锋公众号推文</td>
+                    <td>5</td>
+                    <td>记录天源迪科、方田教育、科大讯飞和城市记忆馆调研，以技术逻辑拆解行业生态。</td>
+                  </tr>
+                  <tr>
+                    <td>企业访谈录</td>
+                    <td>1</td>
+                    <td>突破交流界面，抓取行业痛点与创新思路，为调研报告提供素材。</td>
+                  </tr>
+                  <tr>
+                    <td>调研报告</td>
+                    <td>1</td>
+                    <td>以合肥数字化新兴企业代表为锚点，形成可落地的调研分析闭环。</td>
+                  </tr>
+                  <tr>
+                    <td>实践视频</td>
+                    <td>1</td>
+                    <td>以镜头语言还原实践过程，实现经历可视化与价值传递。</td>
+                  </tr>
+                  <tr>
+                    <td>实践日志</td>
+                    <td>2</td>
+                    <td>锚定实践轨迹，沉淀过程细节，为实践报告提供支撑素材。</td>
+                  </tr>
+                  <tr>
+                    <td>实践报告</td>
+                    <td>1</td>
+                    <td>整合实践价值，全链路拆解调研至落地流程，形成可复用样本。</td>
+                  </tr>
+                  <tr>
+                    <td>新闻报道</td>
+                    <td>2</td>
+                    <td>发表于中青校园等国家级媒体，扩大实践影响力与社会认可。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights">
+      <div class="container">
+        <h2 class="section-title">成果亮点</h2>
+        <div class="highlight-grid">
+          <article class="card highlight-card scroll-reveal" aria-label="企业层面成果">
+            <h3>企业层面 · 技术创新与场景落地并重</h3>
+            <ul>
+              <li>天源迪科构建从数据采集到业务决策的一体化政务平台，强化城市治理效率。</li>
+              <li>方田教育以 AI 工具重新定义课程研发流程，实现教培业务的可持续转型。</li>
+              <li>科大讯飞布局智慧医疗、智慧金融等多行业解决方案，形成“技术—产品—生态”闭环。</li>
+            </ul>
+          </article>
+          <article class="card highlight-card scroll-reveal" aria-label="城市层面成果">
+            <h3>城市层面 · 文化传承与数智融合并进</h3>
+            <ul>
+              <li>合肥城市记忆馆以互动化数字展陈唤醒市民对历史的参与，增强城市文化软实力。</li>
+              <li>“科创 + 产业”双轮驱动，让数智资源从园区辐射到城市公共服务。</li>
+              <li>政务、交通、文化多场景协同提升城市运营效率与居民体验。</li>
+            </ul>
+          </article>
+          <article class="card highlight-card scroll-reveal" aria-label="人才层面成果">
+            <h3>人才需求 · 复合型与实战型并重</h3>
+            <ul>
+              <li>企业普遍关注“编程基础 + 行业理解 + 团队协作”的复合能力。</li>
+              <li>项目实战、数据敏感度与持续学习力成为招聘加分项。</li>
+              <li>校企共建与实习基地为学生提供真实业务环境，加速成长闭环。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ecosystem">
+      <div class="container">
+        <h2 class="section-title">协同生态</h2>
+        <div class="ecosystem">
+          <div class="ecosystem-diagram scroll-reveal" aria-labelledby="ecosystem-heading">
+            <h3 id="ecosystem-heading">政府—企业—高校角色矩阵</h3>
+            <div class="diagram" role="img" aria-label="政府、企业、高校的协同关系示意图">
+              <svg viewBox="0 0 400 300" aria-hidden="true">
+                <defs>
+                  <linearGradient id="link" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(47, 230, 255, 0.6)" />
+                    <stop offset="100%" stop-color="rgba(124, 92, 255, 0.6)" />
+                  </linearGradient>
+                </defs>
+                <path class="pulse" d="M200 60 L80 230" stroke="url(#link)" />
+                <path class="pulse" d="M200 60 L320 230" stroke="url(#link)" />
+                <path class="pulse" d="M80 230 L320 230" stroke="url(#link)" />
+              </svg>
+              <div class="diagram-node" data-node="government">
+                <strong>政府</strong>
+                政策引导 · 创新平台 · 资金扶持
+              </div>
+              <div class="diagram-node" data-node="enterprise">
+                <strong>企业</strong>
+                技术研发 · 场景落地 · 社会责任
+              </div>
+              <div class="diagram-node" data-node="university">
+                <strong>高校</strong>
+                人才培养 · 科研攻关 · 产学研合作
+              </div>
+            </div>
+          </div>
+          <div class="card scroll-reveal" aria-label="协同机制亮点">
+            <h3>协同机制亮点</h3>
+            <div class="meta-list">
+              <div class="meta-item">
+                <strong>政策驱动</strong>
+                <span>《“十四五”数字经济发展规划》等为地方数智化注入制度保障，地方政府通过专项基金、人才计划为企业创新松绑。</span>
+              </div>
+              <div class="meta-item">
+                <strong>校企共育</strong>
+                <span>企业邀请高校团队参与真实项目，建立实习与科研基地，反馈人才能力模型，推动课程更新。</span>
+              </div>
+              <div class="meta-item">
+                <strong>场景闭环</strong>
+                <span>从政务、教育到文化旅游，全链条打通数据、平台与用户，让科技成果更快转化为社会价值。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="action">
+      <div class="container">
+        <h2 class="section-title">结论与展望</h2>
+        <div class="quote-box scroll-reveal">
+          <p>
+            <strong>数智经济不是单一技术命题，而是政产学研协同的系统工程。</strong> 合肥通过政策驱动、企业创新与高校供给构建了互促共生的生态，为中部地区探索数智化发展提供了鲜活案例。
+          </p>
+        </div>
+        <div class="stats scroll-reveal" aria-label="实践关键数据">
+          <div class="stat-card">
+            <h4>4</h4>
+            <p>大调研场景，覆盖政务、教育、AI、文化等多维领域</p>
+          </div>
+          <div class="stat-card">
+            <h4>48h</h4>
+            <p>连续调研时长，形成跨组织、跨行业的深度洞察</p>
+          </div>
+          <div class="stat-card">
+            <h4>6+</h4>
+            <p>场访谈与座谈，获取第一手人才需求与技术趋势</p>
+          </div>
+          <div class="stat-card">
+            <h4>∞</h4>
+            <p>数智时代青年行动可能性，从学习到实践的加速器</p>
+          </div>
+        </div>
+
+        <h3 style="margin: 3rem 0 1.5rem; font-size: 1.4rem;" class="scroll-reveal">行动建议 · 让调研成果反哺成长路径</h3>
+        <div class="action-list">
+          <article class="action-card scroll-reveal">
+            <span class="step">STEP 01</span>
+            <div>
+              <h4>夯实技术底座</h4>
+              <p>系统复盘政务、教育、AI 产业的需求清单，制定编程、数据处理、算法等能力的专项提升计划。</p>
+            </div>
+          </article>
+          <article class="action-card scroll-reveal">
+            <span class="step">STEP 02</span>
+            <div>
+              <h4>拓宽行业视野</h4>
+              <p>借助调研素材制作行业分析报告，结合政策与案例形成自己的观点，持续关注数智赛道的新动态。</p>
+            </div>
+          </article>
+          <article class="action-card scroll-reveal">
+            <span class="step">STEP 03</span>
+            <div>
+              <h4>参与真实项目</h4>
+              <p>主动申请企业实习、科研助理或开源社区项目，将课堂知识与实践问题对接，积累可展示的成果。</p>
+            </div>
+          </article>
+          <article class="action-card scroll-reveal">
+            <span class="step">STEP 04</span>
+            <div>
+              <h4>共建协同网络</h4>
+              <p>维护与政府、企业、校友的联系，探索共创课题、赛事、志愿行动，让调研团队成为持续运作的平台。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="media">
+      <div class="container">
+        <h2 class="section-title">多媒体与延伸阅读</h2>
+        <div class="media-grid">
+          <div class="video-wrapper scroll-reveal">
+            <iframe src="https://player.bilibili.com/player.html?aid=108991950872800&bvid=BV1GCHvz4Ex6&cid=24266782144&p=1" allowfullscreen title="实践视频"></iframe>
+          </div>
+          <div class="card scroll-reveal">
+            <h3>实践资料打包</h3>
+            <p>下载完整版实践报告与调研表单，了解详细数据、访谈纪要与分析框架，便于二次传播与课程教学引用。</p>
+            <div class="meta-list" style="margin-top: 1.4rem;">
+              <div class="meta-item">
+                <strong>PDF 报告</strong>
+                <span><a href="report_text.txt" download>《大思政实践课社会实践团队报告》</a></span>
+              </div>
+              <div class="meta-item">
+                <strong>视频链接</strong>
+                <span><a href="https://www.bilibili.com/video/BV1GCHvz4Ex6/" target="_blank" rel="noopener">B 站观看 · BV1GCHvz4Ex6</a></span>
+              </div>
+              <div class="meta-item">
+                <strong>图文素材</strong>
+                <span>现场照片、记录手册、采访要点可用于团队宣传与成果汇报。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery scroll-reveal" aria-label="图文摘要">
+          <figure>
+            <figcaption>数智赋能政务服务：天源迪科以数据中台支持跨部门协同。</figcaption>
+          </figure>
+          <figure>
+            <figcaption>教育科技转型：方田教育的智能备课系统重塑教师工作流。</figcaption>
+          </figure>
+          <figure>
+            <figcaption>AI 产业跃迁：科大讯飞“星火大模型”展示多模态交互能力。</figcaption>
+          </figure>
+          <figure>
+            <figcaption>文化记忆焕新：城市记忆馆借助沉浸式交互讲述合肥故事。</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    珞珈探企·皖夏知行队 © 2025 · 数智赋能 · 合肥调研成果展示
+  </footer>
+
+  <script>
+    const toggleButton = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('site-nav');
+    toggleButton?.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggleButton.setAttribute('aria-expanded', isOpen);
+    });
+
+    const revealItems = document.querySelectorAll('.scroll-reveal');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    revealItems.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>
