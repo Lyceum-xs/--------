@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业招聘与人才计划一览</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            --accent: #0c7cd5;
+            --bg: #f5f7fb;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: #222;
+        }
+
+        header {
+            background: linear-gradient(120deg, var(--accent), #41b883);
+            color: #fff;
+            padding: 48px 20px 64px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: 0.08em;
+        }
+
+        header p {
+            margin: 12px auto 0;
+            max-width: 720px;
+            font-size: 1.05rem;
+            opacity: 0.92;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: -40px auto 60px;
+            padding: 0 20px 40px;
+        }
+
+        nav.quick-links {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 18px 40px rgba(15, 35, 95, 0.12);
+            padding: 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        nav.quick-links a {
+            display: block;
+            padding: 16px;
+            border-radius: 12px;
+            background: rgba(12, 124, 213, 0.08);
+            color: inherit;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        nav.quick-links a:hover,
+        nav.quick-links a:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(12, 124, 213, 0.18);
+        }
+
+        section.company {
+            margin-top: 48px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 18px 40px rgba(15, 35, 95, 0.08);
+            padding: 36px;
+        }
+
+        section.company h2 {
+            margin-top: 0;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            color: var(--accent);
+        }
+
+        section.company h3 {
+            margin-top: 32px;
+            color: #0d3b66;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .badge-list li {
+            background: rgba(65, 184, 131, 0.16);
+            color: #05644a;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            font-size: 0.95rem;
+        }
+
+        table thead {
+            background: rgba(12, 124, 213, 0.12);
+        }
+
+        table th,
+        table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .recruit-channel {
+            background: rgba(12, 124, 213, 0.08);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-top: 16px;
+        }
+
+        .recruit-channel h4 {
+            margin: 0 0 12px;
+            color: #084a83;
+        }
+
+        .timeline {
+            border-left: 3px solid rgba(12, 124, 213, 0.35);
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .timeline-item {
+            margin-bottom: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px 0 48px;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            section.company {
+                padding: 28px 20px;
+            }
+
+            table th,
+            table td {
+                display: block;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            table thead {
+                display: none;
+            }
+
+            table tr {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                padding: 10px 0;
+                display: block;
+            }
+
+            table td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: #084a83;
+                display: block;
+                margin-bottom: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>企业介绍 · 招聘信息与人才计划</h1>
+        <p>聚焦天源迪科、方田教育、科大讯飞三家代表性企业，了解最新岗位需求、福利待遇、人才培养路径与武大校友合作信息，助力计算机及相关专业学生精准规划职业发展。</p>
+    </header>
+
+    <main>
+        <nav class="quick-links" aria-label="企业快速导航">
+            <a href="#tydic">天源迪科 · 产业数智化综合方案引领者</a>
+            <a href="#fangtian">方田教育 · 教育科技与全流程培养</a>
+            <a href="#iflytek">科大讯飞 · 人工智能国家队</a>
+        </nav>
+
+        <section id="tydic" class="company">
+            <h2>天源迪科</h2>
+            <p>深圳天源迪科信息技术股份有限公司创立于1993年，是国内领先的产业数智化综合解决方案提供商，在通信、金融、公安、政企等行业提供全栈IT服务。</p>
+
+            <div class="info-grid">
+                <div>
+                    <h3>企业亮点</h3>
+                    <ul class="badge-list">
+                        <li>总部：深圳市福田区</li>
+                        <li>通过CMMI5、ISO9001、ISO27001</li>
+                        <li>中国软件业务收入百强</li>
+                        <li>1000+软件著作权与专利</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>业务布局</h3>
+                    <p>深耕数字技术与行业场景融合，为政府、通信、金融等领域提供IT咨询规划、软件产品、解决方案、系统集成与业务运营服务。</p>
+                </div>
+                <div>
+                    <h3>福利待遇</h3>
+                    <p>双休八小时工作制、社会保险及公积金、年度体检、节日补贴；根据岗位提供双薪、项目奖金、年终奖、高原补贴等额外激励。</p>
+                </div>
+            </div>
+
+            <h3>重点招聘岗位</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>岗位</th>
+                        <th>学历/经验</th>
+                        <th>工作内容</th>
+                        <th>地点 &amp; 薪酬</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="岗位">全栈工程师</td>
+                        <td data-label="学历/经验">本科及以上；5年以上经验</td>
+                        <td data-label="工作内容">系统架构设计与开发，保障高性能、可扩展性，推进前后端一体化交付。</td>
+                        <td data-label="地点 &amp; 薪酬">15-20k/月 · 地点面议</td>
+                    </tr>
+                    <tr>
+                        <td data-label="岗位">AI算法工程师（实习）</td>
+                        <td data-label="学历/经验">相关专业硕士在读；每周4天；实习6个月</td>
+                        <td data-label="工作内容">参与大模型应用开发与调优、智能体产品研发、AI算法实验验证。</td>
+                        <td data-label="地点 &amp; 薪酬">160-210元/天 · 地点面议</td>
+                    </tr>
+                    <tr>
+                        <td data-label="岗位">数据分析工程师</td>
+                        <td data-label="学历/经验">本科及以上；1-3年经验</td>
+                        <td data-label="工作内容">数据提取、清洗、整合，构建高可用数据集并输出分析报告。</td>
+                        <td data-label="地点 &amp; 薪酬">拉萨 · 6-9k/月 + 高原补贴</td>
+                    </tr>
+                    <tr>
+                        <td data-label="岗位">Java开发工程师</td>
+                        <td data-label="学历/经验">本科及以上；1-3年以上开发经验</td>
+                        <td data-label="工作内容">需求分析、架构设计、模块开发、测试与文档撰写。</td>
+                        <td data-label="地点 &amp; 薪酬">北京 · 10k-15k/月</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="recruit-channel">
+                <h4>投递渠道与招聘节奏</h4>
+                <p>可通过猎聘、BOSS直聘、智联招聘等平台检索“天源迪科”岗位；或登录企业官网 <a href="https://www.tydic.com" target="_blank" rel="noopener">www.tydic.com</a> 按要求投递。</p>
+                <p><strong>推荐关注公众号：</strong>天源迪科、合肥天源迪科、天源迪科招聘，实时获取招聘会、宣讲与校招计划。</p>
+            </div>
+
+            <h3>人才发展计划</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>“雏鹰计划”</strong>：面向新入职大学生，配备导师、内部/外部培训，帮助成长为技术或业务骨干。
+                </div>
+                <div class="timeline-item">
+                    <strong>“飞鹰计划”</strong>：面向2年以上经验员工，通过轮岗与培训培育各职能部门负责人。
+                </div>
+                <div class="timeline-item">
+                    <strong>“雄鹰计划”</strong>：聚焦高级管理与技术领军人才，提供岗位轮换、内部培训师等资源支持。
+                </div>
+                <div class="timeline-item">
+                    <strong>新员工培训与人才梯队机制</strong>：举办入职主题培训、设立首席专家工作室、建设银发人才库实现经验传承。
+                </div>
+            </div>
+
+            <h3>对学生的期待与建议</h3>
+            <ul>
+                <li>计算机相关专业优先，需熟练掌握 Java、Web 前端、数据库、Linux 等基础技术。</li>
+                <li>重视学习与问题解决能力，关注行业动态、提升团队协作与文档写作能力。</li>
+                <li>鼓励参与实战项目、竞赛或开源社区积累经验，展现创新精神与持续学习力。</li>
+                <li>企业更青睐项目经验丰富、学习能力强、具备创新意识且地域适应性高的候选人。</li>
+            </ul>
+        </section>
+
+        <section id="fangtian" class="company">
+            <h2>方田教育</h2>
+            <p>成立于2014年的方田教育，以“立足数学，拓展理科教育”为愿景，深耕中小学素质教育、体育健康、国际课程、软件研发等多业务板块，在国内外设有十二所分校。</p>
+
+            <div class="info-grid">
+                <div>
+                    <h3>企业亮点</h3>
+                    <ul class="badge-list">
+                        <li>总部：安徽合肥</li>
+                        <li>800+员工 · 平均年龄26岁</li>
+                        <li>年服务学生15万+</li>
+                        <li>腾讯“回响中国”科技创新影响力品牌</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>业务特色</h3>
+                    <p>自主研发“天天练”系统与“PAIS”报告书，搭建“教学七步法”闭环；结合数字化工具提升教学效果，积极布局教育科技。</p>
+                </div>
+                <div>
+                    <h3>福利与关怀</h3>
+                    <p>提供实习住宿/交通补助、五险一金、商业保险、带薪年假、节日关怀等；岗位表现优秀者享受快速晋升与专项培养。</p>
+                </div>
+            </div>
+
+            <h3>重点招聘岗位</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>岗位</th>
+                        <th>学历/背景</th>
+                        <th>核心职责</th>
+                        <th>地点 &amp; 薪酬/福利</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="岗位">IT管培生</td>
+                        <td data-label="学历/背景">专业不限 · 欢迎应届生</td>
+                        <td data-label="核心职责">轮岗了解信息化项目、内部系统运维与业务流程；参与教育数智化产品落地。</td>
+                        <td data-label="地点 &amp; 薪酬/福利">合肥 · 提供住宿、交通补助，转正后五险一金</td>
+                    </tr>
+                    <tr>
+                        <td data-label="岗位">产品助理</td>
+                        <td data-label="学历/背景">本科及以上；计算机/软件相关优先</td>
+                        <td data-label="核心职责">调研用户需求、撰写需求文档、使用 Axure/Figma 进行原型设计，协同研发测试。</td>
+                        <td data-label="地点 &amp; 薪酬/福利">合肥 · 6-10k/月 · 13薪</td>
+                    </tr>
+                    <tr>
+                        <td data-label="岗位">高级 Java 研发工程师</td>
+                        <td data-label="学历/背景">扎实计算机系统与 Java 基础，熟悉数据库与分布式架构</td>
+                        <td data-label="核心职责">负责教育平台核心模块设计、性能优化、分布式系统建设。</td>
+                        <td data-label="地点 &amp; 薪酬/福利">地点面议 · 具竞争力薪酬 + 项目激励</td>
+                    </tr>
+                    <tr>
+                        <td data-label="岗位">国际学科教师 / 竞赛教练</td>
+                        <td data-label="学历/背景">具备相关学科知识；竞赛教练需省赛一等奖及以上</td>
+                        <td data-label="核心职责">承担课程教学、竞赛辅导，参与教研与课程迭代。</td>
+                        <td data-label="地点 &amp; 薪酬/福利">全国分校 · 薪酬根据学科和经验定级</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="recruit-channel">
+                <h4>投递方式与时间安排</h4>
+                <p>通过方田教育招聘官网网申或邮箱 <a href="mailto:ftzhaopin@fangtian.me">ftzhaopin@fangtian.me</a> 投递，邮件命名格式“岗位+院校+姓名”。
+                    校园招聘与宣讲信息可关注公众号：方田教育、方田教育招聘、方田校招。</p>
+                <p>建议提前准备：成绩单、实习/竞赛证明、教学作品或产品原型作品集，方便对应聘岗位进行专项答辩。</p>
+            </div>
+
+            <h3>人才培养体系</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>新田计划</strong>：面向新员工，聚焦职业素养与岗位技能，配备导师辅导和课堂培训。
+                </div>
+                <div class="timeline-item">
+                    <strong>青田计划</strong>：服务业务骨干，通过项目轮岗、复盘分享强化业务全流程能力。
+                </div>
+                <div class="timeline-item">
+                    <strong>中田计划</strong>：针对管理层，开展领导力提升课程与战略实践营。
+                </div>
+                <div class="timeline-item">
+                    <strong>老田计划</strong>：面向高管，提供全球视野拓展培训，打造行业领军人才。
+                </div>
+                <div class="timeline-item">
+                    <strong>管培生项目</strong>：如 IOFT/OFT 管培生，设置全国/全球轮岗与高速晋升通道，培养核心业务骨干。
+                </div>
+            </div>
+
+            <h3>对学生的能力要求</h3>
+            <ul>
+                <li>学历本科及以上；个别岗位需具备英语授课能力或竞赛获奖背景。</li>
+                <li>热爱教育事业，具有自驱力、执行力和良好的沟通协调能力。</li>
+                <li>重视教学与沟通技巧、业务全流程理解、快速学习与适应力。</li>
+                <li>偏好热情投入教育、学习能力强、善于沟通协作的候选人；对合肥及全国多地岗位持开放态度。</li>
+            </ul>
+
+            <h3>与武汉大学的合作亮点</h3>
+            <p>与武大开展实习就业合作、举办校园招聘宣讲会、参与高校就业指导交流，共建“教学-实践-就业”链路；企业团队中亦有武大校友，为学弟学妹提供发展参考。</p>
+        </section>
+
+        <section id="iflytek" class="company">
+            <h2>科大讯飞</h2>
+            <p>科大讯飞股份有限公司成立于1999年，是亚太地区领先的智能语音与人工智能企业，致力于“让机器能听会说，能理解会思考”，在语音合成、语音识别、机器翻译、自然语言理解等领域长期保持国际领先。</p>
+
+            <div class="info-grid">
+                <div>
+                    <h3>企业亮点</h3>
+                    <ul class="badge-list">
+                        <li>国家AI开放创新平台（认知智能）</li>
+                        <li>承建认知智能国家重点实验室</li>
+                        <li>星火认知大模型、讯飞听见、智医助理等明星产品</li>
+                        <li>服务教育、医疗、政务、工业、汽车等多行业</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>技术与业务</h3>
+                    <p>将AI核心技术落地教育、医疗、办公、智慧城市等场景，打造覆盖B端与C端的全栈产品体系，实现“技术—产品—产业”闭环。</p>
+                </div>
+                <div>
+                    <h3>工作体验</h3>
+                    <p>提供顶尖AI项目实践平台，扁平开放的技术文化；为校招生定制“飞凡计划”“飞星计划”等成长通道，支持技术与管理双通道发展。</p>
+                </div>
+            </div>
+
+            <h3>重点招聘方向</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>方向/岗位</th>
+                        <th>目标人群</th>
+                        <th>技能需求</th>
+                        <th>发展与待遇</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="方向/岗位">AI研究算法工程师（NLP/语音/视觉）</td>
+                        <td data-label="目标人群">硕士及以上，具备AI科研/竞赛成果</td>
+                        <td data-label="技能需求">掌握深度学习理论，熟练使用 PyTorch/TensorFlow，具备项目或论文成果。</td>
+                        <td data-label="发展与待遇">参与星火大模型、IWSLT 等项目，享受顶尖导师制与高规格激励。</td>
+                    </tr>
+                    <tr>
+                        <td data-label="方向/岗位">研发工程师（Java/C++/Go/前端/移动端）</td>
+                        <td data-label="目标人群">本科及以上，热爱编程</td>
+                        <td data-label="技能需求">掌握主流编程语言与开发框架，理解大规模系统设计与性能优化。</td>
+                        <td data-label="发展与待遇">加入核心产品研发，提供双通道晋升、股权激励与项目奖金。</td>
+                    </tr>
+                    <tr>
+                        <td data-label="方向/岗位">AI算法测试开发 / 测试开发</td>
+                        <td data-label="目标人群">计算机及相关专业本科/硕士</td>
+                        <td data-label="技能需求">熟悉测试框架、自动化工具，具备算法理解与数据分析能力。</td>
+                        <td data-label="发展与待遇">参与AI质量保障体系建设，提供专业技能培训与轮岗机会。</td>
+                    </tr>
+                    <tr>
+                        <td data-label="方向/岗位">大数据工程师 &amp; 大模型产品经理</td>
+                        <td data-label="目标人群">理工科背景，具备数据或产品经验</td>
+                        <td data-label="技能需求">熟练使用大数据平台、数据治理方法；具备场景洞察与产品规划能力。</td>
+                        <td data-label="发展与待遇">面向亿级用户与行业客户的核心项目，享有专项奖金及长期激励。</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="recruit-channel">
+                <h4>招聘通道</h4>
+                <p>关注“科大讯飞招聘”公众号或校招官网，获取校招日程、在线测评及面试安排。校招通常覆盖秋招（9-11月）与春招（3-4月），部分岗位支持提前批与暑期实习转正。</p>
+            </div>
+
+            <h3>人才培养计划</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>非凡计划</strong>：为顶尖技术毕业生打造“双导师”制，直接参与战略技术项目，享受破格晋升与股权激励。
+                </div>
+                <div class="timeline-item">
+                    <strong>飞星计划</strong>：面向优秀校招生的系统化培养路径，包含入职集训、岗位实践、导师辅导与晋升答辩。
+                </div>
+                <div class="timeline-item">
+                    <strong>飞凡计划</strong>：覆盖2023-2026届优秀毕业生，根据技术/产品/市场等方向定制培训与轮岗，强调“有本事、有热爱、有担当、能自省”。
+                </div>
+                <div class="timeline-item">
+                    <strong>常规校招发展通道</strong>：依据岗位能力模型提供技能培训、跨部门协同与行业应用实践，支持技术与管理双轨发展。
+                </div>
+            </div>
+
+            <h3>对候选人的期待</h3>
+            <ul>
+                <li>具备深度学习、算法研发、编程语言（C/C++/Python/Java）等扎实技术基础。</li>
+                <li>拥有AI研发项目经验、论文发表、竞赛获奖或开放平台实践经历者优先。</li>
+                <li>强调热爱AI、勇于探索、快速学习、积极创新与团队协作能力。</li>
+            </ul>
+
+            <h3>与武汉大学的合作</h3>
+            <p>参与武汉大学机器人学院“天问领航”计划，共建产教融合实训基地；在华中总部共建AI研发中心，联合探索星火大模型应用场景，为武大学子提供科研实践与实习岗位。</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>信息来源：2025年“珞珈探企·皖夏知行队”走访调研资料整理 · 制作日期：2025年</p>
+    </footer>
+</body>
+</html>
